@@ -19,6 +19,9 @@ jobs:
             tox_env: py37-django22
 
     steps:
+    - name: Install system dependencies
+      run: |
+        sudo apt-get install libpq-dev
     - uses: actions/checkout@v1
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
