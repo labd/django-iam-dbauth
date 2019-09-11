@@ -4,3 +4,5 @@
 .coverage*
 dist/
 build/
+env
+.idea/
