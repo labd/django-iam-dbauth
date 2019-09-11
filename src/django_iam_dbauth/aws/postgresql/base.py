@@ -7,7 +7,7 @@ class DatabaseWrapper(base.DatabaseWrapper):
     def get_connection_params(self):
         params = super().get_connection_params()
 
-        if not params["password"]:
+        if not params.get("password"):
             rds_client = boto3.client("rds")
             params["password"] = rds_client.generate_db_auth_token(
                 DBHostname=params["host"],
