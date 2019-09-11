@@ -2,18 +2,21 @@
 
 ## Usage
 
-    pip install django-iam-dbauth
+```shell
+pip install django-iam-dbauth
+```
 
 In your settings use the following
 
-    DATABASES = {
-        "default": {
-            "HOST": "<hostname>",
-            "USER": "<user>",
-            "ENGINE": 'django_iam_dbauth.aws.postgresql'
-        }
+```python
+DATABASES = {
+    "default": {
+        "HOST": "<hostname>",
+        "USER": "<user>",
+        "ENGINE": 'django_iam_dbauth.aws.postgresql'
     }
-
+}
+```
 
 # Caveats
 
