@@ -16,6 +16,7 @@ setup(
     version="0.0.1",
     description="Django database backends to use AWS Database IAM Authentication",
     long_description=open("README.md", "r").read(),
+    long_description_content_type="text/markdown",
     url="https://github.com/LabD/django-iam-dbauth",
     author="Lab Digital",
     author_email="opensource@labdigital.nl",
