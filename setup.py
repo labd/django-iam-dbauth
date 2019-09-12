@@ -13,7 +13,7 @@ tests_require = [
 
 setup(
     name="django-iam-dbauth",
-    version="0.0.2",
+    version="0.0.3",
     description="Django database backends to use AWS Database IAM Authentication",
     long_description=open("README.md", "r").read(),
     long_description_content_type="text/markdown",
