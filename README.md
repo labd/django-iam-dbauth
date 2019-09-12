@@ -14,6 +14,9 @@ DATABASES = {
         "HOST": "<hostname>",
         "USER": "<user>",
         "ENGINE": 'django_iam_dbauth.aws.postgresql'
+        "OPTIONS": {
+            "use_iam_auth": True
+        }
     }
 }
 ```
