@@ -20,7 +20,7 @@ setup(
     url="https://github.com/LabD/django-iam-dbauth",
     author="Lab Digital",
     author_email="opensource@labdigital.nl",
-    install_requires=["Django>=1.11", "boto3"],
+    install_requires=["Django>=1.11", "boto3", "dnspython"],
     tests_require=tests_require,
     extras_require={"docs": docs_require, "test": tests_require},
     entry_points={},
