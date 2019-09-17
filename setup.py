@@ -2,11 +2,12 @@ from setuptools import find_packages, setup
 
 docs_require = []
 
-tests_require = []
 tests_require = [
     "coverage==4.5.4",
+    "pretend==1.0.9",
     "pytest==5.1.2",
     "pytest-cov==2.7.1",
+    "pytest-mock==1.10.4",
     "pytest-django==3.5.1",
 ]
 
