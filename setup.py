@@ -1,3 +1,5 @@
+import re
+
 from setuptools import find_packages, setup
 
 docs_require = []
@@ -12,11 +14,19 @@ tests_require = [
 ]
 
 
+with open("README.md") as fh:
+    long_description = re.sub(
+        "<!-- start-no-pypi -->.*<!-- end-no-pypi -->\n",
+        "",
+        fh.read(),
+        flags=re.M | re.S,
+    )
+
 setup(
     name="django-iam-dbauth",
     version="0.0.3",
     description="Django database backends to use AWS Database IAM Authentication",
-    long_description=open("README.md", "r").read(),
+    long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/LabD/django-iam-dbauth",
     author="Lab Digital",
