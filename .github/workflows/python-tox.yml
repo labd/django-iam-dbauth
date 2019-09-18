@@ -34,7 +34,9 @@ jobs:
       run: |
         tox -e ${{ matrix.tox_env }}
     - name: Prepare Coverage report
-      run: tox -e coverage-report && cp .tox/coverage-report .
+      run: tox -e coverage-report
+    - name: Debug
+      run: ls -al
     - name: Upload to codecov
       uses: codecov/codecov-action@v1.0.2
       with:
