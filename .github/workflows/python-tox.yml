@@ -44,6 +44,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.7"
+    - name: Build package
+      run: python setup.py sdist bdist_wheel
     - name: Publish package
       if: github.event_name == 'push' && startsWith(github.event.ref, 'refs/tags')
       uses: pypa/gh-action-pypi-publish@master
