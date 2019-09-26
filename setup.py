@@ -24,7 +24,7 @@ with open("README.md") as fh:
 
 setup(
     name="django-iam-dbauth",
-    version="0.1.0",
+    version="0.1.1",
     description="Django database backends to use AWS Database IAM Authentication",
     long_description=long_description,
     long_description_content_type="text/markdown",
