@@ -27,8 +27,3 @@ DATABASES = {
     }
 }
 ```
-
-# Caveats
-
-1. You cannot use a cname for the host, it needs to be the actual hostname of
-the RDS instance.
