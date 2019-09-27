@@ -1,3 +1,8 @@
+0.1.2 (2019-09-26)
+==================
+ - Fix github actions release workflow
+
+
 0.1.1 (2019-09-26)
 ==================
  - Fix deployment pipeline
