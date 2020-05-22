@@ -11,6 +11,8 @@ tests_require = [
     "pytest-cov==2.7.1",
     "pytest-mock==1.10.4",
     "pytest-django==3.5.1",
+    "psycopg2==2.8.5",
+    "mysqlclient==1.4.6",
 ]
 
 
