@@ -23,7 +23,7 @@ def pytest_configure():
                 'NAME': 'db.sqlite',
             },
         },
-        MIDDLEWARE = (
+        MIDDLEWARE=(
             'django.contrib.sessions.middleware.SessionMiddleware',
             'django.contrib.auth.middleware.AuthenticationMiddleware',
         ),

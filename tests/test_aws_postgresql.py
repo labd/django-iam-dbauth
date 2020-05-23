@@ -21,7 +21,10 @@ def test_get_connection_params(mocker):
         "PORT": 5432,
         "HOST": "example-cname.labdigital.dev",
         "ENGINE": "django_iam_dbauth.aws.postgresql",
-        "OPTIONS": {"use_iam_auth": 1},
+        "OPTIONS": {
+            "use_iam_auth": 1,
+            "region_name": "test"
+        },
     }
 
     db = DatabaseWrapper(settings)
