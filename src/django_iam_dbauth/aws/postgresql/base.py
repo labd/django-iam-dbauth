@@ -4,6 +4,7 @@ import boto3
 from django.db.backends.postgresql_psycopg2 import base
 
 from django_iam_dbauth.utils import resolve_cname
+from django.conf import settings
 
 
 class DatabaseWrapper(base.DatabaseWrapper):
@@ -11,7 +12,7 @@ class DatabaseWrapper(base.DatabaseWrapper):
         params = super().get_connection_params()
         enabled = params.pop('use_iam_auth', None)
         if enabled:
-            rds_client = boto3.client("rds", region=params.get("region"))
+            rds_client = boto3.client("rds", region=settings.AWS_REGION)
 
             hostname = params.get('host')
             hostname = resolve_cname(hostname) if hostname else "localhost"
