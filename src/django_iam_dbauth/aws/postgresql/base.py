@@ -1,7 +1,7 @@
 import getpass
 
 import boto3
-from django.db.backends.postgresql import base
+from django.db.backends.postgresql_psycopg2 import base
 
 from django_iam_dbauth.utils import resolve_cname
 
@@ -11,7 +11,7 @@ class DatabaseWrapper(base.DatabaseWrapper):
         params = super().get_connection_params()
         enabled = params.pop('use_iam_auth', None)
         if enabled:
-            rds_client = boto3.client("rds")
+            rds_client = boto3.client("rds", region=params.get("region"))
 
             hostname = params.get('host')
             hostname = resolve_cname(hostname) if hostname else "localhost"
