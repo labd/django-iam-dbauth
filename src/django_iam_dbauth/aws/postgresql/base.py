@@ -12,7 +12,7 @@ class DatabaseWrapper(base.DatabaseWrapper):
         params = super().get_connection_params()
         enabled = params.pop('use_iam_auth', None)
         if enabled:
-            rds_client = boto3.client("rds", region=settings.AWS_REGION)
+            rds_client = boto3.client("rds", region_name=settings.AWS_REGION)
 
             hostname = params.get('host')
             hostname = resolve_cname(hostname) if hostname else "localhost"
