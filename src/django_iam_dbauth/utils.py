@@ -1,6 +1,6 @@
-from dns.exception import DNSException
-import dns.resolver
 import dns.rdatatype
+import dns.resolver
+from dns.exception import DNSException
 
 
 def resolve_cname(hostname):
@@ -14,6 +14,6 @@ def resolve_cname(hostname):
         answers = dns.resolver.query(hostname, "CNAME")
         for answer in answers:
             if answer.rdtype == dns.rdatatype.CNAME:
-                return answer.to_text().strip('.')
+                return answer.to_text().strip(".")
     except DNSException:
         return hostname

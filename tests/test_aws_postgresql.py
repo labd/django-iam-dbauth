@@ -1,5 +1,6 @@
 import boto3
 import pretend
+
 from django_iam_dbauth.aws.postgresql.base import DatabaseWrapper
 
 
