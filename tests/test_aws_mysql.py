@@ -22,16 +22,13 @@ def test_get_connection_params(mocker):
         "PORT": 3306,
         "HOST": "example-cname.labdigital.dev",
         "ENGINE": "django_iam_dbauth.aws.mysql",
-        "OPTIONS": {
-            "use_iam_auth": 1,
-            "region_name": "test"
-        },
+        "OPTIONS": {"use_iam_auth": 1, "region_name": "test"},
     }
 
     db = DatabaseWrapper(settings)
     params = db.get_connection_params()
 
-    assert params['password'] == "generated-token"
+    assert params["password"] == "generated-token"
     assert token_kwargs == {
         "DBHostname": "www.labdigital.nl",
         "DBUsername": "mysql",
