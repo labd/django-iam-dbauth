@@ -1,7 +1,7 @@
 import boto3
 import pretend
 
-from django_iam_dbauth.aws.postgresql.base import DatabaseWrapper
+from django_iam_dbauth.aws.mysql.base import DatabaseWrapper
 
 
 def test_get_connection_params(mocker):
@@ -17,11 +17,11 @@ def test_get_connection_params(mocker):
 
     settings = {
         "NAME": "example",
-        "USER": "postgresql",
+        "USER": "mysql",
         "PASSWORD": "secret",
-        "PORT": 5432,
+        "PORT": 3306,
         "HOST": "example-cname.labdigital.dev",
-        "ENGINE": "django_iam_dbauth.aws.postgresql",
+        "ENGINE": "django_iam_dbauth.aws.mysql",
         "OPTIONS": {
             "use_iam_auth": 1,
             "region_name": "test"
@@ -31,16 +31,9 @@ def test_get_connection_params(mocker):
     db = DatabaseWrapper(settings)
     params = db.get_connection_params()
 
-    expected = {
-        "database": "example",
-        "user": "postgresql",
-        "password": "generated-token",
-        "port": 5432,
-        "host": "example-cname.labdigital.dev",
-    }
-    assert params == expected
+    assert params['password'] == "generated-token"
     assert token_kwargs == {
         "DBHostname": "www.labdigital.nl",
-        "DBUsername": "postgresql",
-        "Port": 5432,
+        "DBUsername": "mysql",
+        "Port": 3306,
     }
