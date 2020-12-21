@@ -2,6 +2,7 @@ import dns.name
 import dns.rdatatype
 import dns.resolver
 from dns.exception import DNSException
+from django.db.utils import OperationalError
 
 
 def resolve_cname(hostname):
@@ -24,6 +25,6 @@ def resolve_cname(hostname):
         except DNSException as e:
             # Break when resolution doesn't work.
             # This avoids cryptic authentication failures from RDS.
-            raise Exception("Failed to resolve hostname to RDS endpoint.") from e
+            raise OperationalError("Failed to resolve hostname to RDS endpoint.") from e
 
     return answer.to_text().strip(".")
