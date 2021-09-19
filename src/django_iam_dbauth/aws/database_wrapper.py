@@ -12,7 +12,9 @@ def get_aws_connection_params(params):
         rds_client = boto3.client(service_name="rds", region_name=region_name)
 
         hostname = params.get("host")
-        hostname = resolve_cname(hostname) if hostname else "localhost"
+        cname = params.pop("cname", None)
+        if cname:
+            hostname = resolve_cname(hostname) if hostname else "localhost"
 
         params["password"] = rds_client.generate_db_auth_token(
             DBHostname=hostname,
