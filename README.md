@@ -25,6 +25,7 @@ DATABASES = {
         "OPTIONS": {
             "use_iam_auth": True,
             "sslmode": "require",   # See discussion on SSL below
+            "resolve_cname_enabled": True,
         }
     }
 }
@@ -37,6 +38,10 @@ When using IAM authentication with RDS, SSL is required. If it's not used, such 
 ```
 django.db.utils.OperationalError: FATAL:  pg_hba.conf rejects connection for host "1.2.3.4", user "some_user", database "some_database", SSL off
 ```
+
+### SSL and MySQL
+
+Acquired Token won't work with MySQL if use RDS instance name, which is a CNAME record, as a HOST, because by default it will be resolved to a cannonical name by django-iam-dbauth. As a result the hostname of the token will bi different. To prevent the module from resolving CNAME, set "resolve_cname_enabled" to False.
 
 ### CNAME considerations
 
