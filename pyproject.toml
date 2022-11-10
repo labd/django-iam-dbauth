@@ -13,13 +13,6 @@ source = ["src", ".tox/*/site-packages"]
 show_missing = true
 
 [tool.isort]
-line_length = 88
-multi_line_output = 3
-include_trailing_comma = true
-balanced_wrapping = true
+profile = "black"
 default_section = "THIRDPARTY"
 known_first_party = ["django_iam_dbauth", "tests"]
-use_parentheses = true
-indent_style = "space"
-indent_size = 4
-tab_width = 4

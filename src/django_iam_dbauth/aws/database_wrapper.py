@@ -13,8 +13,11 @@ def get_aws_connection_params(params):
 
         hostname = params.get("host")
         if hostname:
-            hostname = resolve_cname(hostname) if params.pop(
-                "resolve_cname_enabled", True) else hostname
+            hostname = (
+                resolve_cname(hostname)
+                if params.pop("resolve_cname_enabled", True)
+                else hostname
+            )
         else:
             hostname = "localhost"
 
