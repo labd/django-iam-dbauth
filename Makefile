@@ -1,4 +1,4 @@
-.PHONY: install test upload docs
+.PHONY: install test upload docs format
 
 install:
 	pip install -e .[docs,test]
@@ -19,3 +19,7 @@ release:
 	rm -rf dist/*
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
+
+format:
+	isort --profile black src tests
+	black -t py310 src/ tests/

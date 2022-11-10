@@ -1,8 +1,8 @@
 import dns.name
 import dns.rdatatype
 import dns.resolver
-from dns.exception import DNSException
 from django.db.utils import OperationalError
+from dns.exception import DNSException
 
 
 def resolve_cname(hostname):
@@ -21,7 +21,9 @@ def resolve_cname(hostname):
             # Replace deprecated `query` with `resolve`
             # There is one and only one answer for a CNAME and its type is CNAME.
             # If the name doesn't exist or exists with a different type, an exception is raised.
-            answer = dns.resolver.resolve(answer, dns.rdatatype.CNAME, search=True)[0].target
+            answer = dns.resolver.resolve(answer, dns.rdatatype.CNAME, search=True)[
+                0
+            ].target
         except DNSException as e:
             # Break when resolution doesn't work.
             # This avoids cryptic authentication failures from RDS.

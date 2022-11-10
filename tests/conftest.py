@@ -5,6 +5,7 @@ def pytest_configure():
     settings.configure(
         HEALTH_CHECKS={},
         MIDDLEWARE_CLASSES=[],
+        SECRET_KEY="0123456789",
         INSTALLED_APPS=[
             "django.contrib.admin",
             "django.contrib.contenttypes",

@@ -5,14 +5,14 @@ from setuptools import find_packages, setup
 docs_require = []
 
 tests_require = [
-    "coverage[toml]==5.3",
+    "coverage[toml]>=6.2,<=6.6",
     "pretend==1.0.9",
-    "pytest==5.3.5",
-    "pytest-cov==2.7.1",
-    "pytest-mock==1.10.4",
-    "pytest-django==3.8.0",
-    "psycopg2==2.8.5",
-    "mysqlclient==1.4.6",
+    "pytest>=7.0.1,<=7.3",
+    "pytest-cov==4.0.0",
+    "pytest-mock>=3.6.1,<=3.11",
+    "pytest-django==4.5.2",
+    "psycopg2==2.9.5",
+    "mysqlclient==1.4.6,<=2.2",
 ]
 
 
@@ -33,7 +33,7 @@ setup(
     url="https://github.com/LabD/django-iam-dbauth",
     author="Lab Digital",
     author_email="opensource@labdigital.nl",
-    install_requires=["Django>=1.11", "boto3", "dnspython"],
+    install_requires=["Django>=3.2", "boto3", "dnspython"],
     tests_require=tests_require,
     extras_require={"docs": docs_require, "test": tests_require},
     entry_points={},
@@ -45,13 +45,18 @@ setup(
         "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Django",
-        "Framework :: Django :: 1.11",
+        "Framework :: Django :: 3.2",
+        "Framework :: Django :: 4.0",
+        "Framework :: Django :: 4.1",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
     ],
     zip_safe=False,
 )
