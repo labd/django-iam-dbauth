@@ -12,7 +12,7 @@ tests_require = [
     "pytest-mock>=3.6.1,<=3.11",
     "pytest-django==4.5.2",
     "psycopg2==2.9.5",
-    "mysqlclient==1.4.6,<=2.2",
+    "mysqlclient==2.1.1",
 ]
 
 
