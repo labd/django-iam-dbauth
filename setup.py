@@ -5,7 +5,7 @@ from setuptools import find_packages, setup
 docs_require = []
 
 tests_require = [
-    "coverage[toml]>=6.2,<=6.6",
+    "coverage[toml]>=6.2,<7.3",
     "pretend==1.0.9",
     "pytest>=7.0.1,<=7.3",
     "pytest-cov==4.0.0",
