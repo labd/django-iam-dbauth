@@ -5,7 +5,6 @@ from django_iam_dbauth.aws.mysql.base import DatabaseWrapper
 
 
 def test_get_connection_params(mocker):
-
     token_kwargs = {}
 
     def generate_db_auth_token(**kwargs):
