@@ -99,4 +99,4 @@ jobs:
       - name: Prepare Coverage report
         run: tox -e coverage-report
       - name: Upload to codecov
-        uses: codecov/codecov-action@v1.0.6
+        uses: codecov/codecov-action@v4.5.0
