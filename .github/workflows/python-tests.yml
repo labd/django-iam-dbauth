@@ -46,5 +46,8 @@ jobs:
       - name: Install the latest version of rye
         uses: eifinger/setup-rye@v4
 
+      - name: Install dependencies
+        run: rye sync
+
       - name: Test with tox
         run: rye run tox -e ${{ matrix.tox_env }}
