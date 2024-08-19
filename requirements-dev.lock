@@ -17,20 +17,39 @@ boto3==1.35.0
 botocore==1.35.0
     # via boto3
     # via s3transfer
+cachetools==5.5.0
+    # via tox
+chardet==5.2.0
+    # via tox
+colorama==0.4.6
+    # via tox
 coverage==7.6.1
+distlib==0.3.8
+    # via virtualenv
 django==5.1
     # via django-iam-dbauth
 dnspython==2.6.1
     # via django-iam-dbauth
+filelock==3.15.4
+    # via tox
+    # via virtualenv
 iniconfig==2.0.0
     # via pytest
 jmespath==1.0.1
     # via boto3
     # via botocore
 packaging==24.1
+    # via pyproject-api
     # via pytest
+    # via tox
+platformdirs==4.2.2
+    # via tox
+    # via virtualenv
 pluggy==1.5.0
     # via pytest
+    # via tox
+pyproject-api==1.7.1
+    # via tox
 pytest==8.3.2
 python-dateutil==2.9.0.post0
     # via botocore
@@ -40,5 +59,10 @@ six==1.16.0
     # via python-dateutil
 sqlparse==0.5.1
     # via django
+tox==4.18.0
+    # via tox-gh-actions
+tox-gh-actions==3.2.0
 urllib3==2.2.2
     # via botocore
+virtualenv==20.26.3
+    # via tox
