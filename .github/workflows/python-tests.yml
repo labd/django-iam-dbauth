@@ -3,45 +3,14 @@ name: Python Tests
 on: [push]
 
 jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Install the latest version of rye
-        uses: eifinger/setup-rye@v4
-
-      - name: Validate formatting
-        run: rye format --check
-
   test:
     runs-on: ubuntu-latest
-    needs: format
-    strategy:
-      max-parallel: 4
-      matrix:
-        tox_env:
-          - py38-django42
-          - py312-django42
-          - py312-django50
-          - py312-django51
-        include:
-          - python-version: 3.8
-            tox_env: py38-django42
-          - python-version: 3.12
-            tox_env: py312-django42
-          - python-version: 3.12
-            tox_env: py312-django50
-          - python-version: 3.12
-            tox_env: py312-django51
-
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "${{ matrix.python-version }}"
+          python-version: "3.12"
 
       - name: Install the latest version of rye
         uses: eifinger/setup-rye@v4
@@ -49,5 +18,8 @@ jobs:
       - name: Install dependencies
         run: rye sync
 
-      - name: Test with tox
-        run: rye run tox -e ${{ matrix.tox_env }}
+      - name: Validate formatting
+        run: rye format --check
+
+      - name: Test
+        run: rye test

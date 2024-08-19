@@ -14,16 +14,26 @@ asgiref==3.8.1
     # via django
 boto3==1.35.0
     # via django-iam-dbauth
+    # via moto
 botocore==1.35.0
     # via boto3
+    # via moto
     # via s3transfer
 cachetools==5.5.0
     # via tox
+certifi==2024.7.4
+    # via requests
+cffi==1.17.0
+    # via cryptography
 chardet==5.2.0
     # via tox
+charset-normalizer==3.3.2
+    # via requests
 colorama==0.4.6
     # via tox
 coverage==7.6.1
+cryptography==43.0.0
+    # via moto
 distlib==0.3.8
     # via virtualenv
 django==5.1
@@ -33,11 +43,20 @@ dnspython==2.6.1
 filelock==3.15.4
     # via tox
     # via virtualenv
+idna==3.7
+    # via requests
 iniconfig==2.0.0
     # via pytest
+jinja2==3.1.4
+    # via moto
 jmespath==1.0.1
     # via boto3
     # via botocore
+markupsafe==2.1.5
+    # via jinja2
+    # via werkzeug
+moto==5.0.13
+mysqlclient==2.2.4
 packaging==24.1
     # via pyproject-api
     # via pytest
@@ -48,11 +67,27 @@ platformdirs==4.2.2
 pluggy==1.5.0
     # via pytest
     # via tox
+pretend==1.0.9
+psycopg2==2.9.9
+pycparser==2.22
+    # via cffi
 pyproject-api==1.7.1
     # via tox
 pytest==8.3.2
+    # via pytest-django
+    # via pytest-mock
+pytest-django==4.8.0
+pytest-mock==3.14.0
 python-dateutil==2.9.0.post0
     # via botocore
+    # via moto
+pyyaml==6.0.2
+    # via responses
+requests==2.32.3
+    # via moto
+    # via responses
+responses==0.25.3
+    # via moto
 s3transfer==0.10.2
     # via boto3
 six==1.16.0
@@ -64,5 +99,11 @@ tox==4.18.0
 tox-gh-actions==3.2.0
 urllib3==2.2.2
     # via botocore
+    # via requests
+    # via responses
 virtualenv==20.26.3
     # via tox
+werkzeug==3.0.3
+    # via moto
+xmltodict==0.13.0
+    # via moto

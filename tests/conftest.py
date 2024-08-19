@@ -1,4 +1,7 @@
 from django.conf import settings
+from moto import mock_aws
+import boto3
+import pytest
 
 
 def pytest_configure():
@@ -36,3 +39,12 @@ def pytest_configure():
         USE_TZ=True,
         ROOT_URLCONF="test_urls",
     )
+
+
+@pytest.fixture
+def rds_client():
+    # Use moto to mock the RDS client
+    with mock_aws():
+        session = boto3.session.Session()
+        client = session.client(service_name="rds", region_name="us-west-2")
+        yield client
