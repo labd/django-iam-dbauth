@@ -1,3 +1,26 @@
+0.2.1 (2024.9.12)
+=================
+ - add precommit
+ - remove breakpoint
+
+0.2.0 (2024.8.9)
+================
+ - chore: just simplify
+ - ci: add whitelist_externals = python to tox
+ - ci: attempt to fix issues
+ - ci: install deps
+ - ci: copy/paste issue
+ - ci: resolve issues
+ - switch to rye
+ - chore: update release pipeline
+ - Use boto3 session instead of boto3 client
+ - Add dependabot support
+ - chore: update dependencies and fix github actions
+ - Adds resolve_cname_enabled option
+ - Expand documentation with discussion on CNAME use.
+ - Raise OperationalError when CNAME resolution fails instead of generic Exception.
+ - Implement recursive CNAME resolution with a stop condition.
+
 0.1.4 (2020.12.7)
 =================
  - Remove default ca-central-1 region name for boto3
