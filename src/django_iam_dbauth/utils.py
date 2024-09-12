@@ -14,7 +14,6 @@ def resolve_cname(hostname):
     Looking for the endpoint which is of the form cluster-name.accountandregionhash.regionid.rds.amazonaws.com
     To do so, recursively resolve the host name until it's a subdomain of rds.amazonaws.com.
     """
-    breakpoint()
     base_domain = dns.name.from_text("rds.amazonaws.com")
     answer = dns.name.from_text(hostname)
     while not answer.is_subdomain(base_domain):
