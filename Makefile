@@ -21,5 +21,5 @@ release:
 	twine upload dist/*
 
 format:
-	isort --profile black src tests
-	black -t py310 src/ tests/
+	ruff format src tests
+	ruff check --fix src tests
