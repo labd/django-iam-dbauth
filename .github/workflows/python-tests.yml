@@ -2,26 +2,27 @@ name: Python Tests
 
 on: [push]
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
 
-      - name: Install the latest version of rye
-        uses: eifinger/setup-rye@c694239a43768373e87d0103d7f547027a23f3c8 # v4.2.9
-
-      - name: Use Python 3.13
-        run: rye pin 3.13
-
-      - name: Install dependencies
-        run: rye sync
+      - name: Install uv
+        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          python-version: "3.13"
 
       - name: Validate formatting
-        run: rye format --check
+        run: uv run --locked --only-group lint ruff format --check src tests
 
       - name: Lint
-        run: rye lint
+        run: uv run --locked --only-group lint ruff check src tests
 
   test:
     runs-on: ubuntu-latest
@@ -31,17 +32,16 @@ jobs:
         python: ["3.11", "3.12", "3.13", "3.14"]
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
 
-      - name: Install the latest version of rye
-        uses: eifinger/setup-rye@c694239a43768373e87d0103d7f547027a23f3c8 # v4.2.9
-
-      - name: Use Python ${{ matrix.python }}
-        env:
-          PYTHON_VERSION: ${{ matrix.python }}
-        run: rye pin "${PYTHON_VERSION}"
+      - name: Install uv
+        uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884 # v10.3.0
+        with:
+          python-version: ${{ matrix.python }}
 
       - name: Install dependencies
-        run: rye sync
+        run: uv sync --locked
 
       - name: Test
-        run: rye test
+        run: uv run pytest
