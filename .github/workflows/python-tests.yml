@@ -21,5 +21,8 @@ jobs:
       - name: Validate formatting
         run: rye format --check
 
+      - name: Lint
+        run: rye lint
+
       - name: Test
         run: rye test
