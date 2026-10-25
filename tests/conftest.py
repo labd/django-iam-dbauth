@@ -1,7 +1,7 @@
-from django.conf import settings
-from moto import mock_aws
 import boto3
 import pytest
+from django.conf import settings
+from moto import mock_aws
 
 
 def pytest_configure():
