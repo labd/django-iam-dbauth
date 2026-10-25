@@ -1,7 +1,3 @@
-import boto3
-import urllib
-import pretend
-
 from django_iam_dbauth.aws.mysql.base import DatabaseWrapper
 
 
