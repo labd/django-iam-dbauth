@@ -68,7 +68,7 @@ pluggy==1.5.0
     # via pytest
     # via tox
 pretend==1.0.9
-psycopg2==2.9.9
+psycopg2==2.9.11
 pycparser==2.22
     # via cffi
 pyproject-api==1.7.1
