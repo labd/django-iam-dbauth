@@ -53,6 +53,15 @@ lint = [
 requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
+[tool.uv]
+# supply-chain: only resolve releases at least 14 days old; use
+# exclude-newer-package for urgent security fixes
+exclude-newer = "14 days"
+
+[tool.uv.exclude-newer-package]
+# Locked versions newer than the 14-day cutoff; remove after 2026-11-09
+certifi = "2026-10-27T00:00:00Z"  # 2026.10.23 fixes GHSA-6q48-6c7w-9gw2
+
 [tool.hatch.metadata]
 allow-direct-references = true
 
