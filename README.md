@@ -51,3 +51,16 @@ Further documentation:
 
 * [PostgreSQL SSL modes](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION)
 * [AWS guide on IAM DB authentication](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html)
+
+## Releasing
+
+Changes are tracked with [changie](https://changie.dev/). Add a changelog
+entry to every pull request with a user-facing change:
+
+```shell
+changie new
+```
+
+When entries are merged to the default branch, a release pull request is
+opened (or updated) automatically. Merging that pull request tags the release,
+creates the GitHub release and publishes the package to PyPI.
