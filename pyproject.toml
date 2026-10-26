@@ -4,7 +4,8 @@ version = "0.2.1"
 description = "Django database backends to use AWS Database IAM Authentication"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
     { name = "Lab Digital", email = "opensource@labdigital.nl" }
 ]
@@ -13,9 +14,8 @@ classifiers = [
     "Environment :: Web Environment",
     "Framework :: Django",
     "Framework :: Django :: 4.2",
-    "Framework :: Django :: 5.0",
-    "Framework :: Django :: 5.1",
-    "License :: OSI Approved :: MIT License",
+    "Framework :: Django :: 5.2",
+    "Framework :: Django :: 6.0",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
@@ -31,7 +31,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/LabD/django-iam-dbauth"
+Homepage = "https://github.com/labd/django-iam-dbauth"
 
 [dependency-groups]
 dev = [
@@ -50,7 +50,7 @@ lint = [
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [tool.hatch.metadata]
@@ -58,6 +58,10 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/django_iam_dbauth"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
 
 [tool.ruff]
 src = ["src", "tests"]
