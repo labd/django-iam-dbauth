@@ -1,10 +1,8 @@
 # Django IAM database backends
 
-<!-- start-no-pypi -->
-[![pypi](https://img.shields.io/pypi/v/django-iam-dbauth.svg)](https://pypi.python.org/pypi/django-iam-dbauth/)
+[![PyPI](https://img.shields.io/pypi/v/django-iam-dbauth)](https://pypi.org/project/django-iam-dbauth/)
+[![tests](https://github.com/labd/django-iam-dbauth/actions/workflows/python-tests.yml/badge.svg)](https://github.com/labd/django-iam-dbauth/actions/workflows/python-tests.yml)
 [![readthedocs](https://readthedocs.org/projects/django-iam-dbauth/badge/)](https://django-iam-dbauth.readthedocs.io/en/latest/)
-[![tests](https://github.com/labd/django-iam-dbauth/workflows/Python%20Tests/badge.svg)](https://github.com/labd/django-iam-dbauth/actions)
-<!-- end-no-pypi -->
 
 ## Usage
 
